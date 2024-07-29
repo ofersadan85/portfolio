@@ -1,0 +1,6 @@
+# cSpell:disable
+arrowParens: avoid
+bracketSpacing: true
+printWidth: 120
+semi: true
+tabWidth: 2
