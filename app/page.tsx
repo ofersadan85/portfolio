@@ -1,4 +1,4 @@
-import MainTabs from "@/components/main-tabs";
+import TechCarousel from "@/components/tech-carousel";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
           <span className="text-center">Tech Consultant</span>
         </div>
       </div>
-      <MainTabs />
+      <TechCarousel />
     </main>
   );
 }
