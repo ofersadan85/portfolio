@@ -1,3 +1,4 @@
+import MainTabs from "@/components/main-tabs";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
           <span className="text-center">Tech Consultant</span>
         </div>
       </div>
+      <MainTabs />
     </main>
   );
 }
