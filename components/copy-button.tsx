@@ -1,8 +1,8 @@
 "use client";
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { CopyIcon } from "@radix-ui/react-icons";
-import { ReactNode } from "react";
+import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
+import { ReactNode, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 type CopyButtonProps = {
@@ -21,17 +21,29 @@ const CopyButton = ({ copyText, tooltipText, toastText, className }: CopyButtonP
     </>
   );
 
+  let timeout: NodeJS.Timeout | number;
+
   const doCopy = () => {
     navigator.clipboard.writeText(copyText);
     toast(toastText);
+    setIcon(<CheckIcon className={className} color="green" />);
+    timeout = setTimeout(() => setIcon(originalIcon), 1200);
   };
+
+  const originalIcon = <CopyIcon className={className} onClick={doCopy} />;
+  const [icon, setIcon] = useState(originalIcon);
+
+  useEffect(() => {
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger>
-          <CopyIcon className={className} onClick={doCopy} />
-        </TooltipTrigger>
+        <TooltipTrigger>{icon}</TooltipTrigger>
         <TooltipContent>{tooltipText}</TooltipContent>
       </Tooltip>
     </TooltipProvider>

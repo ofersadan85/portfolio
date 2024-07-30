@@ -3,9 +3,6 @@ import CopyButton from "./copy-button";
 
 const Footer = () => {
   const email = "ofersadan85@gmail.com";
-  const copyEmail = () => {
-    navigator.clipboard.writeText(email);
-  };
 
   return (
     <footer className="flex items-center justify-between bottom-0 w-full p-4 text-muted-foreground text-sm">
