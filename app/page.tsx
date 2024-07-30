@@ -1,8 +1,9 @@
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-4">
+    <main className="flex flex-col items-center justify-between p-4">
       <div className="flex flex-col gap-5 items-center w-full">
         <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500">
           Ofer Sadan
