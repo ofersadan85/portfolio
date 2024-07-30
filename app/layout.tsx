@@ -1,5 +1,5 @@
 import Footer from "@/components/footer";
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/navbar/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
