@@ -16,7 +16,8 @@
     "lint:ox": "oxlint --nextjs-plugin --react-perf-plugin --promise-plugin --jest-plugin",
     "lint:ox:fix": "oxlint --nextjs-plugin --react-perf-plugin --promise-plugin --jest-plugin --fix",
     "format": "prettier --ignore-unknown --write .",
-    "format:check": "prettier --ignore-unknown --check ."
+    "format:check": "prettier --ignore-unknown --check .",
+    "pre-commit": "prettier --ignore-unknown --write . && oxlint --nextjs-plugin --react-perf-plugin --promise-plugin --jest-plugin --fix && next lint --fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
