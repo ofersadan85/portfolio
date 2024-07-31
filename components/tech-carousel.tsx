@@ -65,7 +65,7 @@ const TechCarousel = () => {
         <CarouselContent>
           {badges.map((badge, index) => (
             <CarouselItem key={index}>
-              <TechBadge image={badge.image} text={badge.text} />
+              <TechBadge image={badge.image} text={badge.text} className="w-full" />
             </CarouselItem>
           ))}
         </CarouselContent>
