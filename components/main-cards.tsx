@@ -1,10 +1,10 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import { Separator } from "./ui/separator";
 
 const MainCards = () => {
   return (
-    <section className="flex flex-col sm:w-1/2 gap-4 items-center justify-center mt-4">
+    <section className="flex flex-col sm:w-1/2 gap-4 items-center justify-center">
       <Card>
         <CardHeader>
           <CardTitle className="text-xl">Backend Expert</CardTitle>

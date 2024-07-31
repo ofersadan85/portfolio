@@ -53,9 +53,9 @@ const TechCarousel = () => {
   }, [api]);
 
   return (
-    <section className="flex flex-col w-1/2 items-center justify-center mt-4">
+    <section className="flex flex-col w-1/2 items-center justify-center">
       <Carousel
-        className="mt-4 w-full"
+        className="w-full"
         setApi={setApi}
         opts={{ loop: true }}
         plugins={[plugin.current]}

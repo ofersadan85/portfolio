@@ -1,9 +1,9 @@
+import MainMenu from "@/components/navbar/main-menu";
 import { DarkModeToggle } from "@/components/theme-dark-toggle";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { RowsIcon } from "@radix-ui/react-icons";
-import MainMenu from "./main-menu";
 
 const NavBar = () => {
   return (
