@@ -20,10 +20,11 @@ const formSchema = z.object({
 
 type ContactFormProps = {
   messageRows?: number;
+  onSuccess?: () => void;
   className?: string;
 };
 
-const ContactForm = ({ messageRows = 4, className }: ContactFormProps) => {
+const ContactForm = ({ messageRows = 4, onSuccess, className }: ContactFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,6 +49,7 @@ const ContactForm = ({ messageRows = 4, className }: ContactFormProps) => {
       console.log(response);
       toast.success("Message sent successfully");
       form.reset();
+      onSuccess?.();
     } catch (error) {
       form.setError("root", { message: "Failed to send message, please try again" });
     }
@@ -64,10 +66,11 @@ const ContactForm = ({ messageRows = 4, className }: ContactFormProps) => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
+              disabled={form.formState.isSubmitting}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="name">
+                  <FormLabel>
                     <span className="text-red-500 text-xs m-1">*</span>Name
                   </FormLabel>
                   <Input placeholder="John Doe" {...field} />
@@ -77,11 +80,11 @@ const ContactForm = ({ messageRows = 4, className }: ContactFormProps) => {
             ></FormField>
             <FormField
               control={form.control}
+              disabled={form.formState.isSubmitting}
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="email">
-                    {" "}
+                  <FormLabel>
                     <span className="text-red-500 text-xs m-1">*</span>Email
                   </FormLabel>
                   <Input placeholder="email@example.com" {...field} />
@@ -91,10 +94,11 @@ const ContactForm = ({ messageRows = 4, className }: ContactFormProps) => {
             ></FormField>
             <FormField
               control={form.control}
+              disabled={form.formState.isSubmitting}
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="message">
+                  <FormLabel>
                     <span className="text-red-500 text-xs m-1">*</span>Message
                   </FormLabel>
 
@@ -107,14 +111,22 @@ const ContactForm = ({ messageRows = 4, className }: ContactFormProps) => {
             <FormMessage>{form.formState.errors.root?.message}</FormMessage>
             <FormItem>
               <Button type="submit" disabled={form.formState.isSubmitting} className="w-full">
-                {form.formState.isSubmitting ? <Spinner /> : "Send"}
+                {form.formState.isSubmitting ? (
+                  <span className="flex">
+                    <Spinner />
+                    Sending...
+                    <Spinner />
+                  </span>
+                ) : (
+                  "Send"
+                )}
               </Button>
             </FormItem>
           </form>
         </Form>
       </CardContent>
-      <CardFooter className="text-sm items-center justify-center">
-        Or contact me directly - <EmailButton email="ofersadan85@gmail.com" />
+      <CardFooter className="flex max-sm:flex-col text-sm items-center justify-center">
+        Or contact me directly <EmailButton email="ofersadan85@gmail.com" />
       </CardFooter>
     </Card>
   );

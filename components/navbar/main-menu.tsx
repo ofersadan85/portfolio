@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import ContactDialog from "../contact-dialog";
 
 const menuItems = [
   { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-  { title: "Projects", href: "/projects" },
-  { title: "Blog", href: "/blog" },
-  { title: "Contact", href: "/contact" },
+  // { title: "About", href: "/about" },
+  // { title: "Projects", href: "/projects" },
+  // { title: "Blog", href: "/blog" },
 ];
 
 const MainMenu = ({ sidebar = false }: { sidebar?: boolean }) => {
@@ -23,6 +23,13 @@ const MainMenu = ({ sidebar = false }: { sidebar?: boolean }) => {
           </Button>
         </li>
       ))}
+      <li>
+        <ContactDialog>
+          <Button variant={buttonVariant} className="text-lg w-full">
+            Contact
+          </Button>
+        </ContactDialog>
+      </li>
     </ul>
   );
 };

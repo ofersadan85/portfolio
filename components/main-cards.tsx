@@ -1,10 +1,13 @@
+import ContactDialog from "@/components/contact-dialog";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { EnvelopeClosedIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 const MainCards = () => {
   return (
-    <section className="flex flex-col sm:w-1/2 gap-4 items-center justify-center">
+    <section className="flex flex-col w-full sm:w-1/2 gap-4 items-center justify-center">
       <Card>
         <CardHeader>
           <CardTitle className="text-xl">Backend Expert</CardTitle>
@@ -29,7 +32,14 @@ const MainCards = () => {
           </Link>{" "}
           applications.
         </CardContent>
-        <CardFooter>Let&apos;s find the right tools for you.</CardFooter>
+        <CardFooter>
+          <ContactDialog>
+            <Button variant="ghost" className="text-primary text-lg">
+              Let&apos;s find the right tools for<i>&nbsp;you</i>.
+              <EnvelopeClosedIcon className="w-4 h-4 ml-2" />
+            </Button>
+          </ContactDialog>
+        </CardFooter>
       </Card>
       <Card>
         <CardHeader>
@@ -61,7 +71,14 @@ const MainCards = () => {
           </Link>{" "}
           for safety, and you&apos;ve got a winning combination.
         </CardContent>
-        <CardFooter>Let&apos;s create satisfied users.</CardFooter>
+        <CardFooter>
+          <ContactDialog>
+            <Button variant="ghost" className="text-primary text-lg">
+              Let&apos;s create<i>&nbsp;satisfied&nbsp;</i> users.
+              <EnvelopeClosedIcon className="w-4 h-4 ml-2" />
+            </Button>
+          </ContactDialog>
+        </CardFooter>
       </Card>
       <Card>
         <CardHeader>
@@ -86,7 +103,14 @@ const MainCards = () => {
             </li>
           </ol>
         </CardContent>
-        <CardFooter>Let&apos;s make your team set up for success.</CardFooter>
+        <CardFooter>
+          <ContactDialog>
+            <Button variant="ghost" className="text-primary text-lg">
+              Let&apos;s make your team a <i>&nbsp;success</i>.
+              <EnvelopeClosedIcon className="w-4 h-4 ml-2" />
+            </Button>
+          </ContactDialog>
+        </CardFooter>
       </Card>
       <Card>
         <CardHeader>
@@ -117,11 +141,16 @@ const MainCards = () => {
           and get you to market faster.
         </CardContent>
         <CardFooter>
-          Pay less
-          <Separator orientation="vertical" decorative className="h-6 mx-2" />
-          get more
-          <Separator orientation="vertical" decorative className="h-6 mx-2" />
-          <i>faster</i>.
+          <ContactDialog>
+            <Button variant="ghost" className="text-primary text-lg">
+              Pay less
+              <Separator orientation="vertical" decorative className="h-6 mx-2" />
+              get more
+              <Separator orientation="vertical" decorative className="h-6 mx-2" />
+              <i>faster</i>.
+              <EnvelopeClosedIcon className="w-4 h-4 ml-2" />
+            </Button>
+          </ContactDialog>
         </CardFooter>
       </Card>
     </section>

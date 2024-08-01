@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       <TechCarousel />
       <MainCards />
-      <ContactForm className="sm:w-1/2" />
+      <ContactForm className="w-full sm:w-1/2" />
     </main>
   );
 }
